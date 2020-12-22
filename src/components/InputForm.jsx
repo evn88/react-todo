@@ -3,7 +3,12 @@ import React from "react";
 
 class InputForm extends React.Component {
   render() {
-    return <div className="inputForm">input form</div>;
+    return (
+      <form className="inputForm">
+        <input type="text" value="test" />
+        <button type="submit">⏎</button>
+      </form>
+    );
   }
 }
 
