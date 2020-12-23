@@ -19,8 +19,14 @@
   }
 
   button:hover {
-    background-color: $button-color - 30;
+    background-color: $button-color - 15;
     color: $input-color;
+  }
+
+  button:focus {
+    border: none;
+    outline: none;
+    background-color: $button-color - 25;
   }
 
   input {
