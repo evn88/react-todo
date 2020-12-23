@@ -3,18 +3,13 @@ import React from "react";
 
 class List extends React.Component {
   render() {
+    const { todos } = this.props;
     return (
       <div className="list">
         <ul>
-          <li>первая запись</li>
-          <li>первая запись</li>
-          <li>
-            Если в вашем определении содержатся повторяющиеся части, то можно
-            использовать нотацию repeat()
-          </li>
-          <li>первая запись</li>
-          <li>первая запись</li>
-          <li>первая запись</li>
+          {todos.map((item, index) => {
+            return <li key={index}> {item}</li>;
+          })}
         </ul>
       </div>
     );
