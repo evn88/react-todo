@@ -7,8 +7,16 @@ import Clock from "./components/Clock";
 const appName = "Todo App";
 class App extends React.Component {
   state = {
-    todos: ["one", "two", "three"],
+    todos: [
+      { id: 1, status: true, name: "Сделать зарядку" },
+      { id: 2, status: false, name: "Приготовить обед" },
+      { id: 3, status: false, name: "Поработать" },
+    ],
   };
+
+  handleAddTodo(value) {
+    console.log("handleVal:", value, this.todos);
+  }
 
   render() {
     const { todos } = this.state;
@@ -16,7 +24,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>{appName}</h1>
-          <InputForm todos={todos} />
+          <InputForm todos={todos} onAddTodo={this.handleAddTodo} />
           <List todos={todos} />
           <Clock />
         </header>

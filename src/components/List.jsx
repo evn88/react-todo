@@ -7,8 +7,8 @@ class List extends React.Component {
     return (
       <div className="list">
         <ul>
-          {todos.map((item, index) => {
-            return <li key={index}> {item}</li>;
+          {todos.map(({ id, name }) => {
+            return <li key={id}> {name}</li>;
           })}
         </ul>
       </div>
