@@ -15,6 +15,7 @@ class InputForm extends React.Component {
   handleAddTodo = (e) => {
     e.preventDefault();
     this.setState({ inputText: "" });
+    this.props.onAddTodo(this.state.inputText);
     console.log(this.state.inputText);
   };
 
