@@ -35,11 +35,17 @@
     border-radius: 20px 0 0 20px;
     padding-left: 20px;
     color: rgb(58, 58, 58);
+    caret-color: $button-color;
   }
 
   input:focus {
     border: none;
     outline: none;
     background-color: $input-color + 30;
+  }
+
+  input:hover {
+    background-color: $input-color + 30;
+    transition-duration: 2s;
   }
 }
