@@ -9,21 +9,32 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleAddTodo = this.handleAddTodo.bind(this);
+    this.toggleTodo = this.toggleTodo.bind(this);
   }
 
   state = {
     todos: [
-      { id: 1, status: true, name: "Сделать зарядку" },
-      { id: 2, status: false, name: "Приготовить обед" },
-      { id: 3, status: false, name: "Поработать" },
+      { id: 1, checked: false, name: "Сделать зарядку" },
+      { id: 2, checked: false, name: "Приготовить обед" },
+      { id: 3, checked: false, name: "Поработать" },
     ],
   };
 
   handleAddTodo(value) {
     let nextId = this.state.todos.length + 1;
-    console.log(nextId);
     this.setState({
       todos: [{ id: nextId, name: value, status: false }, ...this.state.todos],
+    });
+  }
+
+  toggleTodo(id) {
+    this.setState({
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.checked = !todo.checked;
+        }
+        return todo;
+      }),
     });
   }
 
@@ -34,7 +45,7 @@ class App extends React.Component {
         <header className="App-header">
           <h1>{appName}</h1>
           <InputForm todos={todos} onAddTodo={this.handleAddTodo} />
-          <List todos={todos} />
+          <List todos={todos} toggleTodo={this.toggleTodo} />
           <Clock />
         </header>
       </div>
