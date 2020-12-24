@@ -6,6 +6,11 @@ import Clock from "./components/Clock";
 
 const appName = "Todo App";
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
+  }
+
   state = {
     todos: [
       { id: 1, status: true, name: "Сделать зарядку" },
@@ -15,7 +20,11 @@ class App extends React.Component {
   };
 
   handleAddTodo(value) {
-    console.log("handleVal:", value, this.todos);
+    let nextId = this.state.todos.length + 1;
+    console.log(nextId);
+    this.setState({
+      todos: [{ id: nextId, name: value, status: false }, ...this.state.todos],
+    });
   }
 
   render() {
