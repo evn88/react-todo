@@ -14,10 +14,12 @@ class List extends React.Component {
                 <span className={checked && "done"}>
                   <input
                     type="checkbox"
+                    id={"item" + id}
+                    className="checkbox"
                     checked={checked}
                     onChange={() => toggleTodo(id)}
                   />
-                  {name}
+                  <label for={"item" + id}>{name}</label>
                 </span>
                 <button className="btn btn-delete">x</button>
               </li>
